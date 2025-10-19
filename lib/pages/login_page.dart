@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatelessWidget {
@@ -69,7 +70,27 @@ class LoginPage extends StatelessWidget {
                 Expanded(child: Divider()),
               ],
             ),
-            Text("Icons here"),
+            Text("Thank you for choosing MediCall - Connect with Us"),
+            SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: FaIcon(FontAwesomeIcons.facebook, color: Colors.blue),
+                  onPressed: () {},
+                ),
+                SizedBox(width: 20),
+                IconButton(
+                  icon: FaIcon(FontAwesomeIcons.linkedin, color: Colors.blueAccent),
+                  onPressed: () {},
+                ),
+                SizedBox(width: 20),
+                IconButton(
+                  icon: FaIcon(FontAwesomeIcons.xTwitter, color: Colors.black),
+                  onPressed: () {},
+                ),
+              ],
+            ),
             SizedBox(height: 36,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
