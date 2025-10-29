@@ -1,9 +1,10 @@
 import 'package:first_wtf_app/data/dummy_user_details.dart';
 import 'package:first_wtf_app/model/user_detail.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class UserNotifier extends ChangeNotifier{
-  UserDetail? loggedInUser;
+class UserCubit extends Cubit<UserDetail?>{
+  UserCubit(): super(null);
 
   void login(BuildContext context, String email, String password) async{
     print("Got in to log in function");
@@ -14,13 +15,14 @@ class UserNotifier extends ChangeNotifier{
 
     for(var userDetail in USER_DETAILS){
       if(userDetail.email == email && userDetail.password == password){
-        loggedInUser = userDetail;
+        
+        emit(userDetail);
         Navigator.of(context).pushReplacementNamed("/home");
       }else{
         // notfy user using
+        
       }
     }
 
-    notifyListeners();
   }
 }

@@ -1,7 +1,8 @@
 import 'package:first_wtf_app/model/user_detail.dart';
 import 'package:first_wtf_app/pages/notifications_page.dart';
-import 'package:first_wtf_app/provider/user_notifier.dart';
+import 'package:first_wtf_app/provider/user_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -106,15 +107,17 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget _buildProfilePics() {
+    UserDetail? user = BlocProvider.of<UserCubit>(context).state;
+
     return Container(
       decoration: BoxDecoration(shape: BoxShape.circle),
       clipBehavior: Clip.hardEdge,
-      child: Image.asset("assets/profile_pics.jpg", width: 100, height: 100),
+      child: Image.network(user!.profilePicture, width: 100, height: 100),
     );
   }
 
   Widget _buildDetails() {
-    UserDetail? user = Provider.of<UserNotifier>(context).loggedInUser;
+    UserDetail? user = BlocProvider.of<UserCubit>(context).state;
 
     if(user == null) return Text("User Details not set");
 

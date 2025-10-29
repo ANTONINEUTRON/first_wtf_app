@@ -1,4 +1,4 @@
-import 'package:first_wtf_app/provider/user_notifier.dart';
+import 'package:first_wtf_app/provider/user_cubit.dart';
 import 'package:first_wtf_app/widgets/custom_button.dart';
 import 'package:first_wtf_app/widgets/custom_textfield.dart';
 import 'package:first_wtf_app/widgets/password_textfield.dart';
@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    var userNotifier = Provider.of<UserNotifier>(context);
+    var userNotifier = Provider.of<UserCubit>(context);
 
     return Scaffold(
       body: SingleChildScrollView(
